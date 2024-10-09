@@ -1,0 +1,102 @@
+html,
+body {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background: linear-gradient(to bottom, #282a40, #000a18);
+}
+
+.wrapper {
+    border: 1px solid rgb(4, 87, 122);
+    width: 420px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.wrapper .title {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.wrapper .dsp-language {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.wrapper .btn-language {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    border: 1px solid rgb(4, 87, 122);
+    border-radius: 25px;
+}
+
+.btn-language .language {
+    height: 70px;
+    width: 50%;
+    line-height: 105px;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.6s ease;
+}
+
+.dsp-language .slider-tab {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    border-radius: 25px;
+    left: 0;
+    z-index: 0;
+    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.263, 1.55);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#us:checked ~ label.us,
+#pt-br:checked ~ label.pt-br {
+    cursor: default;
+    user-select: none;
+}
+
+.box-advice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
+    border-radius: 15px;
+    background-color: #000a18;
+    border: 1px solid rgb(4, 87, 122);
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.box-advice .advice {
+    padding: 25px;
+}
+
+.btn-advice {
+    padding: 15px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    background: -webkit-linear-gradient(bottom, #003366, #004080, #0059b3, #0073e6);
+    margin-top: 50px;
+}
+
+.btn-advice:hover {
+    background: -webkit-linear-gradient(top, #003366, #004080, #0059b3, #0073e6);
+}
