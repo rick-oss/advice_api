@@ -1,9 +1,17 @@
 let globalAdvice = "";
+let currentLang = "en";
 let usRadio = document.querySelector("#us");
 let ptBrRadio = document.querySelector("#pt-br");
 let txtAdvice = document.querySelector(".advice");
 const sliderTab = document.querySelector(".slider-tab");
 const adviceButton = document.querySelector(".btn-advice");
+const translations = {
+    en: { title: "Generator Advice", adviceButton: "New Advice" },
+    pt: {
+        title: "Gerador de Conselhos",
+        adviceButton: "Novo Conselho",
+    },
+};
 
 async function getAdvice() {
     try {
@@ -18,17 +26,6 @@ async function getAdvice() {
     }
 }
 
-async function translateAdvice(advice) {
-    try {
-        const response = await fetch(`https://api.mymemory.translated.net/get?q=${advice}&langpair=en|pt`);
-        const data = await response.json();
-
-        return data.responseData.translatedText;
-    } catch (err) {
-        console.error(`Erro: ${err}`);
-    }
-}
-
 async function showAdvice() {
     try {
         const advice = await getAdvice();
@@ -37,12 +34,24 @@ async function showAdvice() {
         globalAdvice = advice;
 
         if (ptBrRadio.checked) {
+            currentLang = "en";
             usRadio.checked = true;
             ptBrRadio.checked = false;
             sliderTab.style.left = "0";
         }
     } catch (err) {
         console.log(err);
+    }
+}
+
+async function translateAdvice(advice) {
+    try {
+        const response = await fetch(`https://api.mymemory.translated.net/get?q=${advice}&langpair=en|pt`);
+        const data = await response.json();
+
+        return data.responseData.translatedText;
+    } catch (err) {
+        console.error(`Erro: ${err}`);
     }
 }
 
@@ -62,9 +71,26 @@ function showLanguageReal() {
     sliderTab.style.left = "0";
 }
 
-adviceButton.addEventListener("click", showAdvice);
-usRadio.addEventListener("click", showLanguageReal);
+function translatePage() {
+    currentLang = currentLang === "en" ? "pt" : "en";
+
+    document.querySelector(".title").textContent = translations[currentLang].title;
+    adviceButton.value = translations[currentLang].adviceButton;
+}
+
+adviceButton.addEventListener("click", function () {
+    showAdvice();
+
+    if (currentLang === "pt") {
+        translatePage();
+    }
+});
+usRadio.addEventListener("click", function () {
+    showLanguageReal();
+    translatePage();
+});
 ptBrRadio.addEventListener("click", function () {
     showTranslation(globalAdvice);
+    translatePage();
 });
 showAdvice();
