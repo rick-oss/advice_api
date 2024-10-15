@@ -33,6 +33,11 @@ async function showAdvice() {
         txtAdvice.textContent = advice;
         globalAdvice = advice;
 
+        // Se o idioma estiver em pt-br, faz a tradução da interface de volta para o inglês após a nova requisição
+        if (currentLang === "pt") {
+            translatePage();
+        }
+
         if (ptBrRadio.checked) {
             currentLang = "en";
             usRadio.checked = true;
@@ -61,6 +66,7 @@ async function showTranslation(advice) {
 
         txtAdvice.textContent = translation;
         sliderTab.style.left = "50%";
+        translatePage();
     } catch (err) {
         console.log(`Erro: ${err}`);
     }
@@ -69,6 +75,7 @@ async function showTranslation(advice) {
 function showLanguageReal() {
     txtAdvice.textContent = globalAdvice;
     sliderTab.style.left = "0";
+    translatePage();
 }
 
 function translatePage() {
@@ -78,19 +85,9 @@ function translatePage() {
     adviceButton.value = translations[currentLang].adviceButton;
 }
 
-adviceButton.addEventListener("click", function () {
-    showAdvice();
-
-    if (currentLang === "pt") {
-        translatePage();
-    }
-});
-usRadio.addEventListener("click", function () {
-    showLanguageReal();
-    translatePage();
-});
+adviceButton.addEventListener("click", showAdvice);
+usRadio.addEventListener("click", showLanguageReal);
 ptBrRadio.addEventListener("click", function () {
     showTranslation(globalAdvice);
-    translatePage();
 });
 showAdvice();
