@@ -1,105 +1,123 @@
 html,
 body {
-    display: grid;
-    height: 100%;
-    width: 100%;
-    place-items: center;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: #282a40;
+    display: grid; /* Centraliza o conteúdo da página */
+    height: 100%; /* Ocupa 100% da altura da janela */
+    width: 100%; /* Ocupa 100% da largura da janela */
+    place-items: center; /* Centraliza o conteúdo tanto horizontal quanto verticalmente */
+    box-sizing: border-box; /* Define a maneira como o tamanho total é calculado */
+    margin: 0; /* Remove a margem padrão do body */
+    padding: 0; /* Remove o padding padrão do body */
+    background-color: #282a40; /* Define a cor de fundo escura */
 }
 
 .wrapper {
-    width: 420px;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    background: #11151b;
+    width: 420px; /* Define a largura do contêiner principal */
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+    padding: 20px; /* Adiciona 20px de espaçamento interno */
+    border-radius: 10px; /* Arredonda as bordas */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    background: #11151b; /* Cor de background */
 }
 
 .wrapper .title {
-    font-size: 40px;
-    font-weight: 600;
-    color: #ccc;
+    font-size: 40px; /* Tamanho da fonte do título */
+    font-weight: 600; /* Deixa o título em negrito */
+    color: #ccc; /* Cor cinza clara para o texto */
 }
 
 .wrapper .dsp-language {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    display: flex; /* Exibe os elementos em linha */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    margin-top: 20px; /* Espaçamento acima da área de seleção de idioma */
 }
 
 .wrapper .btn-language {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    border: 1px solid #ccc;
-    background-color: #1a2029;
-    border-radius: 25px;
+    position: relative; /* Posiciona o slider-tab em relação ao contêiner pai */
+    display: flex; /* Exibe os elementos em linha */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    justify-content: center; /* Centraliza os elementos horizontalmente */
+    width: 60%; /* Define a largura dos botões de idiomas */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    background-color: #1a2029; /* Cor de Fundo do botão de idiomas */
+    border-radius: 25px; /* Arredonda as bordas para o botão */
 }
 
 .btn-language .language {
-    height: 70px;
-    width: 50%;
-    line-height: 105px;
-    cursor: pointer;
-    z-index: 1;
-    transition: all 0.6s ease;
+    height: 70px; /* Altura de cada botão de idioma */
+    width: 50%; /* Largura de 50% para cada botão de idioma */
+    line-height: 105px; /* Alinhamento vertical da imagem no centro */
+    cursor: pointer; /* Muda o cursor para "pointer" ao passar sobre os botões */
+    z-index: 1; /* Mantém os botões acima do slider-tab */
+    transition: all 0.6s ease; /* Transiçao suave ao mudar entre os idiomas */
 }
 
 .dsp-language .slider-tab {
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    border-radius: 25px;
-    left: 0;
-    z-index: 0;
-    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.263, 1.55);
+    position: absolute; /* Posiciona a aba de seleção de idioma */
+    height: 100%; /* Ocupa toda a altura do botão de idiomas */
+    width: 50%; /* Ocupa metade da largura para cobrir um idioma por vez */
+    border-radius: 25px; /* Arredonda as bordas da aba */
+    left: 0; /* Posiciona inicialmente à esquerda (para inglês) */
+    z-index: 0; /* Mantém abaixo dos botões de idioma */
+    background: -webkit-linear-gradient(
+        left,
+        #003366,
+        #004080,
+        #0059b3,
+        #0073e6
+    ); /* Define um gradiente para o slider */
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.263, 1.55); /* Animação mais suave ao mover o slider */
 }
 
 input[type="radio"] {
-    display: none;
+    display: none; /* Esconde os botões de rádio padrão */
 }
 
 #us:checked ~ label.us,
 #pt-br:checked ~ label.pt-br {
-    cursor: default;
-    user-select: none;
+    cursor: default; /* Desativa o cursor pointer quando o idioma já está selecionado */
+    user-select: none; /* Impede que o botão seja selecionado */
 }
 
 .box-advice {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 120px;
-    border-radius: 15px;
-    color: white;
+    display: flex; /* Alinha o conteúdo dentro da caixa de conselhos */
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    width: 100%; /* Largura total do contêiner */
+    height: 120px; /* Altura da caixa de conselhos */
+    border-radius: 15px; /* Arredonda as bordas */
+    color: white; /* Cor branca para texto dentro da caixa */
     border: 1px solid #ccc;
-    background-color: #1a2029;
-    margin-top: 40px;
-    font-size: 18px;
+    background-color: #1a2029; /* Cor de background */
+    margin-top: 40px; /* Espaçamento acima da caixa */
+    font-size: 18px; /* Tamanho do texto dos conselhos */
 }
 
 .box-advice .advice {
-    padding: 25px;
+    padding: 25px; /* Adiciona espaçamento interno para o texto dos conselhos */
 }
 
 .btn-advice {
-    padding: 15px 30px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: 600;
-    border: none;
-    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
-    margin-top: 50px;
+    padding: 15px 30px; /* Espaçamento interno que define o tamanho do botão de novo conselho */
+    border-radius: 15px; /* Arredonda bordas do botão */
+    cursor: pointer; /* Cursor pointer ao passar sobre o botão */
+    font-weight: 600; /* Deixa o texto do botão em negrito*/
+    border: none; /* Remove borda padrão do botão */
+    background: -webkit-linear-gradient(
+        left,
+        #003366,
+        #004080,
+        #0059b3,
+        #0073e6
+    ); /* Define o mesmo gradiente do slider-tab para o botão */
+    margin-top: 50px; /* Espaçamento acima do botão */
 }
 
 .btn-advice:hover {
-    background: -webkit-linear-gradient(right, #003366, #004080, #0059b3, #0073e6);
+    background: -webkit-linear-gradient(
+        right,
+        #003366,
+        #004080,
+        #0059b3,
+        #0073e6
+    ); /* transiçao do gradiente ao passar o mouse */
 }
