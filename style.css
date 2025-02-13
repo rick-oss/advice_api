@@ -27,7 +27,6 @@ body::after {
 }
 
 /*Foto de <a href="https://unsplash.com/pt-br/@carlsolder?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Carl Solder</a> na <a href="https://unsplash.com/pt-br/fotografias/vista-aerea-de-arranha-ceus-BAfzYlMlQRs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>*/
-/* Tema escuro */
 
 .wrapper {
   position: fixed;
@@ -35,8 +34,8 @@ body::after {
   text-align: center; /* Centraliza o texto dentro do contêiner */
   padding: 20px; /* Adiciona 20px de espaçamento interno */
   border-radius: 10px; /* Arredonda as bordas */
-  border: 1px solid #ccc; /* Borda cinza clara */
-  background: #11151b; /* Cor de background */
+  /* Borda cinza clara */
+  background-color: #11151b; /* Cor de background */
 }
 
 .wrapper .title {
@@ -47,6 +46,7 @@ body::after {
 
 .wrapper .dsp-language {
   display: flex; /* Exibe os elementos em linha */
+  width: 100%;
   justify-content: center; /* Centraliza horizontalmente o conteúdo */
   margin-top: 20px; /* Espaçamento acima da área de seleção de idioma */
 }
@@ -111,7 +111,7 @@ input[type="radio"] {
 }
 
 .btn-advice {
-  padding: 15px 30px; /* Espaçamento interno que define o tamanho do botão de novo conselho */
+  padding: 15px 50px; /* Espaçamento interno que define o tamanho do botão de novo conselho */
   border-radius: 15px; /* Arredonda bordas do botão */
   cursor: pointer; /* Cursor pointer ao passar sobre o botão */
   font-weight: 600; /* Deixa o texto do botão em negrito*/
@@ -139,18 +139,56 @@ input[type="radio"] {
 /* Tema claro */
 @media (prefers-color-scheme: light) {
   .wrapper {
-    border-color: #666; /* Bordas no claro */
+    background-color: #383e49;
+  }
+
+  .wrapper .title {
+    color: #e7f5fe;
   }
 
   .wrapper .btn-language {
-    border-color: #666;
+    background-color: #e7f5fe;
   }
 
   .box-advice {
-    border-color: #666;
+    background-color: #e7f5fe;
+    font-weight: 600;
+    color: #111;
   }
 
   .btn-advice {
     color: #fff;
+  }
+}
+
+@media (max-width: 420px) {
+  .wrapper {
+    width: 90%;
+    place-items: center;
+    height: 430px;
+    padding: 0;
+  }
+
+  .wrapper .title {
+    font-size: 25px;
+    padding-top: 20px;
+  }
+
+  .btn-language .language {
+    height: 65px;
+    line-height: 102px;
+  }
+
+  .box-advice {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .box-advice .advice {
+    padding: 20px;
+  }
+
+  .btn-advice {
+    font-size: 14px;
   }
 }
