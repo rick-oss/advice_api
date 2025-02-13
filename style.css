@@ -116,6 +116,7 @@ input[type="radio"] {
   cursor: pointer; /* Cursor pointer ao passar sobre o botão */
   font-weight: 600; /* Deixa o texto do botão em negrito*/
   border: none; /* Remove borda padrão do botão */
+  color: #fff;
   background: -webkit-linear-gradient(
     left,
     #003366,
